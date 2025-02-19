@@ -1,6 +1,8 @@
-export default function InteractionButtons() {
+export default function InteractionButtons({ isComment }) {
+  console.log(isComment);
+
   return (
-    <form>
+    <form className="content-grid-interaction">
       <button
         className="btn-updoot"
         onClick={(e) => {
@@ -9,7 +11,7 @@ export default function InteractionButtons() {
       >
         🎺
       </button>{" "}
-      ## votes | ## comments
+      ## votes{isComment ? "" : " | ## comments"}
     </form>
   );
 }

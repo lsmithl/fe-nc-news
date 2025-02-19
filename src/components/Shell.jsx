@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SearchBar from "./SearchBar";
+import { Link } from "react-router";
 
 export default function Shell({ children }) {
   const [filterInputTempText, setFilterInputTempText] = useState();
@@ -11,7 +12,9 @@ export default function Shell({ children }) {
   return (
     <>
       <header className="top-bar">
-        <h1>Northcoders News</h1>
+        <Link to="/">
+          <h1>Northcoders News</h1>
+        </Link>
       </header>
       <SearchBar />
       <main>{children}</main>
