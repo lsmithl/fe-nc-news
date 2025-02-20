@@ -31,7 +31,7 @@ export default function Article() {
         <div>{article.body}</div>
       </div>
       <img className="content-grid-image" src={article.article_img_url} />
-      <InteractionButtons />
+      <InteractionButtons relatedContent={article} />
     </article>
   );
 }

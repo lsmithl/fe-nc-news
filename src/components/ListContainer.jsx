@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import ArticleSummary from "./ArticleSummary";
+import ArticleSummaries from "./ArticleSummaries";
 import { useParams } from "react-router";
-import Comment from "./Comment";
+import Comments from "./Comments";
 import Loading from "./Loading";
 
 export default function ListContainer({ dataApiPath } = "") {
@@ -31,13 +31,13 @@ export default function ListContainer({ dataApiPath } = "") {
     case "articles":
       return (
         <ul className="item-list">
-          <ArticleSummary content={listItems} />
+          <ArticleSummaries content={listItems} />
         </ul>
       );
     case "articles/:article_id/comments":
       return (
         <ul className="item-list">
-          <Comment content={listItems} />
+          <Comments content={listItems} />
         </ul>
       );
     default:
