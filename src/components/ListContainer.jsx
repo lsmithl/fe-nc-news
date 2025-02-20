@@ -4,6 +4,7 @@ import ArticleSummaries from "./ArticleSummaries";
 import { useParams } from "react-router";
 import Comments from "./Comments";
 import Loading from "./Loading";
+import AddComment from "./AddComment";
 
 export default function ListContainer({ dataApiPath } = "") {
   const [listItems, setListItems] = useState([]);
@@ -37,6 +38,7 @@ export default function ListContainer({ dataApiPath } = "") {
     case "articles/:article_id/comments":
       return (
         <ul className="item-list">
+          {article_id ? <AddComment /> : ""}
           <Comments content={listItems} />
         </ul>
       );

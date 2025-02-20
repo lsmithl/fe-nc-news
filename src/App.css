@@ -89,12 +89,17 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
-button:hover {
+button:hover:not(:disabled) {
   border-color: var(--col-primary-o25);
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+button:disabled {
+  cursor: default;
+  background-color: var(--col-bg-o25);
+  color: var(--col-fg-o25);
 }
 
 #fssb {
@@ -178,7 +183,7 @@ ul {
   font-weight: normal;
   display: grid;
   grid-template-columns: 1fr 10rem;
-  grid-template-rows: 2.5rem min-content 2.5rem;
+  grid-template-rows: 2.5rem min-content minmax(2.5rem, min-content);
   grid-template-areas:
     "content-grid-info content-grid-image"
     "content-grid-main content-grid-image"
@@ -213,8 +218,12 @@ ul {
   object-fit: cover;
 }
 
-.content-grid > div {
+.content-grid > div,
+.content-grid > textarea {
   padding: var(--outline-size) calc(var(--outline-size) * 2);
+  font: inherit;
+  resize: none;
+  field-sizing: content; /* browser support for this isn't good (only works on Chrome and Edge), needs a js solution for full support */
 }
 
 .btn-updoot {
@@ -227,11 +236,18 @@ ul {
   border-radius: 100vw;
 }
 
-.btn-updoot:hover {
+#btn-new-comment {
+  padding: 0.5ch 1ch;
+  margin-left: 1ch;
+}
+
+.btn-updoot:hover,
+#btn-new-comment:hover {
   border-color: var(--col-primary-o25);
 }
 
-.btn-updoot:focus:not(:focus-visible) {
+.btn-updoot:focus:not(:focus-visible),
+#btn-new-comment:focus:not(:focus-visible) {
   outline: none;
 }
 
@@ -244,4 +260,8 @@ ul {
 
 .bold {
   font-weight: bold;
+}
+
+.hidden {
+  display: none;
 }
