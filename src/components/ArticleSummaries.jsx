@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import InteractionButtons from "./InteractionButtons";
 import formatDate from "../utils/formatDate";
 
-export default function ArticleSummary({ content }) {
+export default function ArticleSummaries({ content }) {
   return (
     <>
       {content.map((item) => {
@@ -14,7 +14,7 @@ export default function ArticleSummary({ content }) {
               </div>
               <div className="content-grid-main bold">{item.title}</div>
               <img className="content-grid-image" src={item.article_img_url} />
-              <InteractionButtons />
+              <InteractionButtons relatedContent={item} />
             </li>
           </Link>
         );
